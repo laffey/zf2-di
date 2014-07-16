@@ -1,7 +1,6 @@
 <?php
 /**
- * shared library di
- * di config
+ * Example of an application di config
  */
 
 return array(
