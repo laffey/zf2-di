@@ -15,3 +15,33 @@ Allows for nested config settings.
 Includes a required flag, allowing optional dependencies.
 
 Prevents, and throws exeption on circular dependencies.
+
+======================================================================================
+
+Nested config example:
+
+```
+//app-config.php
+return array(
+        'doctrine' => array(
+            'configuration' => array(
+                'odm_default' => array(
+                    'driver'             => 'odm_default',
+                    'metadata_cache'     => 'array',
+
+                    'generate_proxies'   => true,
+                    'proxy_dir'          => APPLICATION_DIR . '/data/Doctrine/Proxy',
+                    'proxy_namespace'    => 'Doctrine\Proxy',
+
+//...
+
+// would look like this in di config.php:
+'document_broker' => array(
+                'class' => '\Ei\Document\DocumentBroker',
+                'dependencies' => array(
+                    array('type' => 'setting', 'value' => 'doctrine.configuration.odm_default.generate_proxies', 'required' => true),
+                    )
+                    ),
+
+//...
+```
