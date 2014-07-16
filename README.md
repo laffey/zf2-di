@@ -10,4 +10,8 @@ Allows injecting of:
    * other objects initialized by the injector
    * other objects or services initialized elsewhere in the application
 
+Allows for nested config settings.
+
+Includes a required flag, allowing optional dependencies.
+
 Prevents, and throws exeption on circular dependencies.
